@@ -6,7 +6,6 @@
  * @author Marina Ruiz Artacho
  */
 
-import java.util.ArrayList;
 import java.io.*;
 
 public class Ejercicio01 {
@@ -23,7 +22,6 @@ public class Ejercicio01 {
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("primos.dat"));
-        ArrayList<Integer> ints = new ArrayList<>();
         for (int i = 1; i <= 500; i++) {
             if (esPrimo(i))
                 bw.write(i + " ");
