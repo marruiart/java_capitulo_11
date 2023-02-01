@@ -13,25 +13,34 @@
  * @author Marina Ruiz Artacho
  */
 
- import java.io.BufferedReader;
- import java.io.FileReader;
- import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Ejercicio03 {
     public static void main(String[] args) throws IOException {
         BufferedReader br1 = new BufferedReader(new FileReader("fichero1.dat"));
         BufferedReader br2 = new BufferedReader(new FileReader("fichero2.dat"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("mix.dat"));
+
         String linea1 = "";
         String linea2 = "";
+        linea1 = br1.readLine();
+        linea2 = br2.readLine();
         while (linea1 != null || linea2 != null) {
+            if (linea1 != null) {
+                bw.write(linea1);
+            }
+            if (linea2 != null) {
+                bw.write(linea2);
+            }
             linea1 = br1.readLine();
             linea2 = br2.readLine();
-            if (linea1 != null)
-                System.out.println(linea1);
-            if (linea2 != null)
-                System.out.println(linea2);
         }
         br1.close();
         br2.close();
+        bw.close();
     }
 }
