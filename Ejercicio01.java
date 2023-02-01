@@ -6,7 +6,9 @@
  * @author Marina Ruiz Artacho
  */
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Ejercicio01 {
 
