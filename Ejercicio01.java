@@ -24,9 +24,14 @@ public class Ejercicio01 {
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("primos.dat"));
+        int n = 0;
         for (int i = 1; i <= 500; i++) {
-            if (esPrimo(i))
-                bw.write(i + " ");
+            if (esPrimo(i)) {
+                bw.write(String.format("%-3d ", i));
+                n++;
+                if (n % 10 == 0)
+                    bw.write("\n");
+            }
         }
         bw.close();
     }
