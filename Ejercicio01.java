@@ -10,29 +10,38 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import classes.Primos;
+
 public class Ejercicio01 {
 
-    private static boolean esPrimo(int num) {
-        boolean esPrimo = true;
-        for (int i = 2; esPrimo && (i <= num / 2);) {
-            if (num % i == 0)
-                esPrimo = false;
-            i++;
-        }
-        return esPrimo;
-    }
-
     public static void main(String[] args) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new FileWriter("primos.dat"));
-        int n = 0;
-        for (int i = 1; i <= 500; i++) {
-            if (esPrimo(i)) {
-                bw.write(String.format("%-3d ", i));
-                n++;
-                if (n % 10 == 0)
-                    bw.write("\n");
-            }
+        if (args.length != 2) {
+            System.out.println("El número de argumentos tiene que ser dos");
+            return;
         }
-        bw.close();
+        int min;
+        int max;
+        try {
+            min = Integer.parseInt(args[0]);
+            max = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("Debe pasar dos argumentos de tipo entero.");
+            return;
+        }
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter("primos.dat"));
+            int primo = min;
+            do {
+                primo = Primos.siguientePrimo(primo);
+                if (primo <= max) {
+                    bw.write(String.format("%d\n", primo));
+                }
+            } while (primo <= max);
+            if (bw != null)
+                bw.close();
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
     }
 }

@@ -6,19 +6,14 @@
  * @author Marina Ruiz Artacho
  */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import classes.Primos;
 
 public class Ejercicio02 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("primos.dat"));
-        String linea = br.readLine();
-        String[] numeros = linea.split(" ");
-        linea = "";
-        for (String n : numeros)
-            linea += (n + ", ");
-        System.out.println(linea.substring(0, linea.length() - 2));
-        br.close();
+        Primos primos = new Primos("primos.dat");
+        primos.add(501);
+        System.out.println(primos);
+        primos.writeToFile();
     }
 }
