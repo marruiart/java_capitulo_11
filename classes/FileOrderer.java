@@ -20,7 +20,6 @@ public class FileOrderer {
         this.orig = o;
         this.dest = d;
         BufferedReader br;
-        BufferedWriter bw;
         br = new BufferedReader(new FileReader(this.orig));
         String linea = br.readLine();
         while (linea != null) {
