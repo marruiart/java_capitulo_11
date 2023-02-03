@@ -30,7 +30,7 @@ public class Ejercicio01 {
         }
         BufferedWriter bw = null;
         try {
-            bw = new BufferedWriter(new FileWriter("primos.dat"));
+            bw = new BufferedWriter(new FileWriter("./text_results/primos.dat"));
             int primo = min;
             do {
                 primo = Primos.siguientePrimo(primo);

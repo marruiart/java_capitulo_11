@@ -11,7 +11,7 @@ import classes.Primos;
 
 public class Ejercicio02 {
     public static void main(String[] args) throws IOException {
-        Primos primos = new Primos("primos.dat");
+        Primos primos = new Primos("./text_results/primos.dat");
         primos.add(501);
         System.out.println(primos);
         primos.writeToFile();
