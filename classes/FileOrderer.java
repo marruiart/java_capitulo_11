@@ -31,7 +31,7 @@ public class FileOrderer {
     }
 
     public void writeToFile() throws Exception {
-        BufferedWriter bw = new BufferedWriterConsole(new FileWriter(this.dest));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(this.dest));
         for (String l : this.palabras) {
             bw.write(String.format("%s\n", l));
         }
